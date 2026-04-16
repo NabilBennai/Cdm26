@@ -1,0 +1,47 @@
+<header class="border-b border-pitch-500/20 bg-stadium/85 backdrop-blur">
+  <nav class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+    <a class="flex items-center gap-3" routerLink="/" (click)="fermerMenu()" aria-label="Accueil Coupe du monde 2026">
+      <span class="flex h-10 w-10 items-center justify-center rounded-full bg-pitch-500 text-lg font-black text-stadium">26</span>
+      <div>
+        <p class="text-sm uppercase tracking-[0.24em] text-pitch-300">Suivi officiel</p>
+        <p class="text-lg font-semibold text-white">Coupe du monde 2026</p>
+      </div>
+    </a>
+
+    <button
+      type="button"
+      class="ml-auto rounded-lg border border-pitch-400/30 p-2 text-pitch-200 md:hidden"
+      (click)="basculerMenu()"
+      [attr.aria-expanded]="menuOuvert"
+      aria-controls="menu-principal"
+      aria-label="Ouvrir le menu principal"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+    <ul
+      id="menu-principal"
+      [ngClass]="{
+        hidden: !menuOuvert,
+        flex: menuOuvert,
+        'md:flex': true
+      }"
+      class="w-full flex-col gap-2 rounded-xl border border-pitch-500/20 bg-slate-900/80 p-4 text-sm md:ml-auto md:w-auto md:flex-row md:items-center md:gap-6 md:border-0 md:bg-transparent md:p-0"
+    >
+      <li>
+        <a routerLink="/" routerLinkActive="text-pitch-300" [routerLinkActiveOptions]="{ exact: true }" class="font-medium text-slate-100 transition hover:text-pitch-300" (click)="fermerMenu()">Accueil</a>
+      </li>
+      <li>
+        <a routerLink="/resultats" routerLinkActive="text-pitch-300" class="font-medium text-slate-100 transition hover:text-pitch-300" (click)="fermerMenu()">Résultats</a>
+      </li>
+      <li>
+        <a routerLink="/calendrier" routerLinkActive="text-pitch-300" class="font-medium text-slate-100 transition hover:text-pitch-300" (click)="fermerMenu()">Calendrier</a>
+      </li>
+      <li>
+        <a routerLink="/groupes" routerLinkActive="text-pitch-300" class="font-medium text-slate-100 transition hover:text-pitch-300" (click)="fermerMenu()">Groupes</a>
+      </li>
+    </ul>
+  </nav>
+</header>

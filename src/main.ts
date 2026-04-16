@@ -1,12 +1,8 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { Component } from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { AppComponent } from './app/app.component';
+import { routes } from './app/app.routes';
 
-@Component({
-  selector: 'app-root',
-  standalone: true,
-  templateUrl: './app/app.component.html',
-  styleUrl: './app/app.component.css'
-})
-class AppComponent {}
-
-bootstrapApplication(AppComponent).catch((err) => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [provideRouter(routes)]
+}).catch((err) => console.error(err));
